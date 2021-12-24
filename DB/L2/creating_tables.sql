@@ -16,7 +16,7 @@ CREATE TABLE discipline(
 	practic_hours INT,
 	lab_hours INT,
 	credits INT,
-	attestation_type, VARCHAR (100),
+	attestation_type VARCHAR (100),
 	department_id INT REFERENCES department
 );
 
