@@ -26,6 +26,7 @@ CREATE TABLE credit_module (
 	practic_hours INT CHECK (practic_hours >= 0),
 	lab_hours INT CHECK (lab_hours >= 0),
 	credits INT CHECK (credits >= 0),
+	attestation_type VARCHAR(100),
 	discipline_id INT REFERENCES discipline
 );
 
