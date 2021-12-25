@@ -35,10 +35,10 @@ VALUES	('Іноземна мова', 10, 20, 10, 4, 'test'),
 		
 INSERT INTO credit_module (credit_module_name, lection_hours, practic_hours, lab_hours, 
 						   credits, attestation_type)
-VALUES	('Іноземна мова - 1', 5, 10, 5, 'test'),
-		('Іноземна мова - 2', 5, 10, 5, 'test'),
-		('Компоненти програмної інженерії - 1', 5, 10, 5, 'test'),
-		('Компоненти програмної інженерії - 2', 5, 10, 5, 'test');
+VALUES	('Іноземна мова - 1', 5, 10, 5, 2, 'test'),
+		('Іноземна мова - 2', 5, 10, 5, 2, 'test'),
+		('Компоненти програмної інженерії - 1', 5, 10, 5, 2, 'test'),
+		('Компоненти програмної інженерії - 2', 5, 10, 5, 2, 'test');
 		
 INSERT INTO student (student_name, surname, father_name)
 VALUES	('Олексій', 'Олексієнко', 'Олексійович'),
