@@ -22,6 +22,7 @@ CREATE TABLE discipline(
 
 CREATE TABLE credit_module (
 	credit_module_id SERIAL PRIMARY KEY,
+	credit_module_name VARCHAR(100),
 	lection_hours INT CHECK (lection_hours >= 0),
 	practic_hours INT CHECK (practic_hours >= 0),
 	lab_hours INT CHECK (lab_hours >= 0),
