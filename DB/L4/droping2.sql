@@ -5,3 +5,4 @@ DROP TABLE credit_module;
 DROP TABLE discipline;
 DROP TABLE department;
 DROP TABLE faculty;
+DROP TABLE person;
