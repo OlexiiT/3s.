@@ -17,3 +17,6 @@ SELECT * FROM ttt;
 
 ALTER VIEW ttt RENAME TO new_foreign_lang_list;
 SELECT * FROM new_foreign_lang_list;
+
+select column_name from information_schema.columns 
+where table_name = 'student';
