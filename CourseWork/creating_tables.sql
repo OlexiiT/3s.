@@ -6,7 +6,7 @@ CREATE TABLE city (
 CREATE TABLE office(
 	office_id SERIAL PRIMARY KEY,
 	city_id INTEGER REFERENCES city (city_id),
-	adress VARCHAR(100) NOT NULL UNIQUE,
+	address VARCHAR(100) NOT NULL UNIQUE,
 	phone VARCHAR(19) NOT NULL UNIQUE,
 	CHECK(phone LIKE '+38 (___) ___-__-__' OR phone LIKE '(___) ___-__-__')
 );
@@ -23,7 +23,7 @@ CREATE TABLE employee(
 	last_name VARCHAR(50) NOT NULL,
 	first_name VARCHAR(50) NOT NULL,
 	father_name VARCHAR(50) NOT NULL,
-	adress VARCHAR(100) NOT NULL,
+	address VARCHAR(100) NOT NULL,
 	phone VARCHAR(19) NOT NULL UNIQUE,
 	passport_number VARCHAR(30),
 	birthday DATE,
@@ -49,7 +49,7 @@ CREATE TABLE client(
 	last_name VARCHAR(50) NOT NULL,
 	first_name VARCHAR(50) NOT NULL,
 	father_name VARCHAR(50),
-	addres VARCHAR(100),
+	address VARCHAR(100),
 	phone VARCHAR(19) NOT NULL,
 	birthday DATE,
 	email VARCHAR(50) NOT NULL UNIQUE, 
@@ -67,7 +67,7 @@ CREATE TABLE orders(
 
 CREATE TABLE billboard(
 	billboard_id SERIAL PRIMARY KEY,
-	adress VARCHAR(100),
+	address VARCHAR(100),
 	date_end DATE,
 	phone VARCHAR(19) NOT NULL,
 	city_id INTEGER NOT NULL REFERENCES city(city_id),
@@ -77,7 +77,7 @@ CREATE TABLE billboard(
 CREATE TABLE tv_channel(
 	tv_channel_id SERIAL PRIMARY KEY,
 	channel_name VARCHAR(100),
-	adress  VARCHAR(100),
+	address  VARCHAR(100),
 	phone VARCHAR(19) NOT NULL,
 	city_id INTEGER NOT NULL REFERENCES city(city_id),
 	CHECK(phone LIKE '+38 (___) ___-__-__' OR phone LIKE '(___) ___-__-__')
@@ -86,7 +86,7 @@ CREATE TABLE tv_channel(
 CREATE TABLE printery(
 	printery_id SERIAL PRIMARY KEY,
 	printery_name VARCHAR(50),
-	adress VARCHAR(100),
+	address VARCHAR(100),
 	phone VARCHAR(19),
 	city_id INTEGER NOT NULL REFERENCES city (city_id),
 	CHECK(phone LIKE '+38 (___) ___-__-__' OR phone LIKE '(___) ___-__-__')
