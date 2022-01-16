@@ -13,8 +13,7 @@ CREATE TABLE office(
 
 CREATE TABLE department(
 	department_id SERIAL PRIMARY KEY,
-	department_name VARCHAR(50),
-	manager_id INTEGER UNIQUE
+	department_name VARCHAR(50)
 );
 
 CREATE TABLE employee(
@@ -32,9 +31,6 @@ CREATE TABLE employee(
 	salary MONEY NOT NULL,
 	CHECK(phone LIKE '+38 (___) ___-__-__' OR phone LIKE '(___) ___-__-__')
 );
-
-ALTER TABLE department 
-ADD FOREIGN KEY (manager_id) REFERENCES employee (employee_id);
 
 CREATE TABLE task(
 	task_id SERIAL PRIMARY KEY,
