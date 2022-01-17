@@ -13,7 +13,6 @@ SELECT * FROM student_temp;
 DROP TABLE IF EXISTS student_temp;
 
 
-
 -- 1.b) Запит з використанням умовної конструкції IF
 CREATE OR REPLACE PROCEDURE create_student_temp_if_not_exists() AS
 $$
@@ -27,3 +26,35 @@ $$ LANGUAGE plpgsql;
 CALL create_student_temp_if_not_exists();
 SELECT * FROM student_temp;
 DROP TABLE IF EXISTS student_temp;
+
+
+-- 1.c) Створити запит з використанням циклу WHILE
+CREATE OR REPLACE PROCEDURE create_and_fill_table()
+AS
+$$
+DECLARE
+    i_inc INT := 1;
+    i_current   INT := 0;
+    i_max       INT := 9;
+BEGIN
+    DROP TABLE IF EXISTS test;
+
+    CREATE TEMP TABLE test
+    (
+        num INTEGER
+    );
+
+    WHILE i_current <= i_max
+        LOOP
+            i_current := i_current + i_inc;
+            INSERT INTO test (num)
+            SELECT i_current;
+        END LOOP;
+END;
+$$
+    LANGUAGE plpgsql;
+
+CALL create_and_fill_table();
+
+SELECT * FROM test;
+DROP TABLE IF EXISTS test;
