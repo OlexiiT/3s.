@@ -148,6 +148,6 @@ BEGIN
 	INNER JOIN faculty ON department.faculty_id = faculty.faculty_id
 	WHERE faculty_name LIKE 'Факультет інформатики та інформаційних технологій';
 END;
-$$ LANGUAGE plpgsql;*/
+$$ LANGUAGE plpgsql;
 CALL get_fict_discipline();
 
