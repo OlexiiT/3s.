@@ -17,6 +17,14 @@ CREATE TABLE logs (
 );
 
 
+CREATE OR REPLACE VIEW employees_from_big_cities AS
+SELECT employee_id, last_name, first_name, father_name, employee.address, city_name
+	FROM employee INNER JOIN office ON employee.office_id = office.office_id
+	INNER JOIN city ON office.city_id = city.city_id
+WHERE city_name LIKE 'Київ' OR city_name LIKE 'Одеса'
+ORDER BY city_name, employee_id;
+
+
 CREATE OR REPLACE FUNCTION add_to_log() 
 RETURNS TRIGGER AS 
 $$
