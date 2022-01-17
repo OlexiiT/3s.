@@ -98,3 +98,33 @@ CALL create_and_fill_table();
 CALL get_test_stat(0, 0, 0);
 
 
+-- 1.f) Створення процедури з вхідним параметром та RETURN
+CREATE OR REPLACE PROCEDURE create_new_table(
+	i integer
+) AS
+$$ 
+DECLARE 
+	i_current INT := 0;
+BEGIN 
+	CREATE TABLE test (
+		test_id SERIAL,
+		test_int INT
+	);
+	WHILE i_current < i
+	LOOP
+		i_current := i_current + 1;
+		INSERT INTO test(test_int)
+		SELECT i_current;
+	END LOOP;
+	RETURN;
+	INSERT INTO test (test_int) 
+	VALUES (0);
+END;
+$$ LANGUAGE plpgsql;
+
+CALL create_new_table(11);
+SELECT * FROM test;
+DROP TABLE test;
+
+
+
