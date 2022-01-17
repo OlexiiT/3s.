@@ -138,3 +138,16 @@ CALL update_data();
 SELECT * FROM test;
 
 
+-- 1.h) Створення процедури, в котрій робиться вибірка даних
+CREATE OR REPLACE PROCEDURE get_fict_discipline() AS
+$$ 
+BEGIN 
+	CREATE VIEW fict_disciplines AS
+	SELECT discipline_id, discipline_name
+	FROM discipline INNER JOIN department ON discipline.department_id = department.department_id
+	INNER JOIN faculty ON department.faculty_id = faculty.faculty_id
+	WHERE faculty_name LIKE 'Факультет інформатики та інформаційних технологій';
+END;
+$$ LANGUAGE plpgsql;*/
+CALL get_fict_discipline();
+
