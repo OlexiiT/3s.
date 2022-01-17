@@ -59,6 +59,25 @@ CALL create_and_fill_table();
 SELECT * FROM test;
 DROP TABLE IF EXISTS test;
 
+
+-- 1.d) Створення процедури без параметрів
+CREATE OR REPLACE PROCEDURE create_test_table () AS
+$$
+BEGIN
+	CREATE TEMP TABLE test (
+		test_id SERIAL, 
+		test_name VARCHAR(100)
+	);
+END;
+$$ LANGUAGE plpgsql;
+
+CALL create_test_table();
+INSERT INTO test (test_name)
+VALUES ('my name');
+SELECT * FROM test;
+DROP TABLE test;
+
+
 -- 1.e) Створення процедури з вхідним параметром
 CREATE OR REPLACE PROCEDURE get_test_stat(
     out min_val int,
@@ -77,3 +96,5 @@ $$ LANGUAGE plpgsql;
 
 CALL create_and_fill_table();
 CALL get_test_stat(0, 0, 0);
+
+
