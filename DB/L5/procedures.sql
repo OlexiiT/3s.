@@ -124,7 +124,17 @@ $$ LANGUAGE plpgsql;
 
 CALL create_new_table(11);
 SELECT * FROM test;
-DROP TABLE test;
 
+
+-- 1.g) Створення процедури оновлення даних в деякій таблиці БД
+CREATE OR REPLACE PROCEDURE update_data () AS 
+$$
+BEGIN 
+	UPDATE test
+	SET test_int = test_int + 10;
+END;
+$$ LANGUAGE plpgsql;
+CALL update_data();
+SELECT * FROM test;
 
 
