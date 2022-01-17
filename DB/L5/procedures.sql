@@ -58,3 +58,22 @@ CALL create_and_fill_table();
 
 SELECT * FROM test;
 DROP TABLE IF EXISTS test;
+
+-- 1.e) Створення процедури з вхідним параметром
+CREATE OR REPLACE PROCEDURE get_test_stat(
+    out min_val int,
+    out max_val int,
+    out avg_val numeric) AS
+$$
+BEGIN
+    SELECT min(num),
+           max(num),
+           avg(num)
+    INTO min_val, max_val, avg_val
+    FROM test;
+
+END ;
+$$ LANGUAGE plpgsql;
+
+CALL create_and_fill_table();
+CALL get_test_stat(0, 0, 0);
